@@ -1,7 +1,7 @@
 import getRandomIntInclusive from '../lib.js';
 import app from '../index.js';
 
-const TASK_TEXT = 'Answer "yes" if the number is prime, otherwise answer "no".';
+const TASK_TEXT = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
 const isPrime = (num) => {
   if (num === 1) {
