@@ -6,8 +6,8 @@ const TASK_TEXT = 'What is the result of the expression?';
 const getRandomExpression = () => {
   const operators = ['+', '-', '*'];
   const operator = operators[getRandomIntInclusive(0, 2)];
-  const operand1 = getRandomIntInclusive(1, 50);
-  const operand2 = getRandomIntInclusive(1, 50);
+  const operand1 = getRandomIntInclusive(1, 100);
+  const operand2 = getRandomIntInclusive(1, 100);
 
   return `${operand1} ${operator} ${operand2}`;
 };
