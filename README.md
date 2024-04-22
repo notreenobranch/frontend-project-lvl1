@@ -10,7 +10,7 @@ The set inculdes:
 - **brain-calc** — you will be asked to solve arithmetic problems;
 - **brain-prime** — you will need to answer whether the given number is prime or not;
 - **brain-progression** — fill in the blank in arithmetic progression;
-- **brain-gcd** — Two random numbers will be shown, and your task is to calculate their greatest common divisor
+- **brain-gcd** — two random numbers will be shown, and your task is to calculate their greatest common divisor.
 
 ## Installation
 1. Clone the repo and move to the directory.
