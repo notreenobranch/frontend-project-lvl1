@@ -1,4 +1,4 @@
-import getRandomIntInclusive from '../lib.js';
+import getRandomIntInclusive from '../utils.js';
 import app from '../index.js';
 
 const TASK_TEXT = 'What is the result of the expression?';

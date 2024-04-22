@@ -1,4 +1,4 @@
-import getRandomIntInclusive from '../lib.js';
+import getRandomIntInclusive from '../utils.js';
 import app from '../index.js';
 
 const TASK_TEXT = 'Answer "yes" if the number is even, otherwise answer "no".';
