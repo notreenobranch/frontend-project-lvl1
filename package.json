@@ -2,7 +2,7 @@
   "name": "@hexlet/code",
   "version": "1.0.0",
   "type": "module",
-  "description": "[![Actions Status](https://github.com/ikoriza/frontend-project-lvl1/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/ikoriza/frontend-project-lvl1/actions)",
+  "description": "Brain Games is a set of five console mini-games that will allow your brain to stay in shape",
   "bin": {
     "brain-games": "bin/brain-games.js",
     "brain-even": "bin/brain-even.js",
