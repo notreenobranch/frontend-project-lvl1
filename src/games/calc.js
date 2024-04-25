@@ -29,7 +29,7 @@ const calculateExpression = (expressionString) => {
       result = operand1 * operand2;
       break;
     default:
-      break;
+      throw new Error(`Unsupported operator: '${operator}'!`);
   }
 
   return String(result);
