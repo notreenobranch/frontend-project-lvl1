@@ -1,24 +1,17 @@
-import getRandomIntInclusive from '../utils.js';
-import app from '../index.js';
+import { getRandomIntInclusive, isPrime } from '../utils.js';
+import { NUMBER_OF_ROUNDS, app } from '../index.js';
 
 const TASK_TEXT = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
-const isPrime = (num) => {
-  if (num === 1) {
-    return 'no';
-  }
+const problems = [];
+const answers = [];
 
-  if (num === 2) {
-    return 'yes';
-  }
+for (let i = 0; i < NUMBER_OF_ROUNDS; i += 1) {
+  const problem = getRandomIntInclusive(0, 100);
+  const answer = isPrime(problem) ? 'yes' : 'no';
 
-  for (let i = 2; i <= Math.sqrt(num); i += 1) {
-    if (num % i === 0) {
-      return 'no';
-    }
-  }
+  problems.push(problem);
+  answers.push(answer);
+}
 
-  return 'yes';
-};
-
-export default () => app(TASK_TEXT, getRandomIntInclusive, isPrime);
+export default () => app(TASK_TEXT, problems, answers);

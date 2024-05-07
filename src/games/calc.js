@@ -1,38 +1,17 @@
-import getRandomIntInclusive from '../utils.js';
-import app from '../index.js';
+import { getRandomExpression, calculateExpression } from '../utils.js';
+import { NUMBER_OF_ROUNDS, app } from '../index.js';
 
 const TASK_TEXT = 'What is the result of the expression?';
 
-const getRandomExpression = () => {
-  const operators = ['+', '-', '*'];
-  const operator = operators[getRandomIntInclusive(0, 2)];
-  const operand1 = getRandomIntInclusive(1, 100);
-  const operand2 = getRandomIntInclusive(1, 100);
+const problems = [];
+const answers = [];
 
-  return `${operand1} ${operator} ${operand2}`;
-};
+for (let i = 0; i < NUMBER_OF_ROUNDS; i += 1) {
+  const problem = getRandomExpression();
+  const answer = calculateExpression(problem);
 
-const calculateExpression = (expressionString) => {
-  const [number1, operator, number2] = expressionString.split(' ');
-  const operand1 = Number(number1);
-  const operand2 = Number(number2);
+  problems.push(problem);
+  answers.push(answer);
+}
 
-  let result;
-  switch (operator) {
-    case '+':
-      result = operand1 + operand2;
-      break;
-    case '-':
-      result = operand1 - operand2;
-      break;
-    case '*':
-      result = operand1 * operand2;
-      break;
-    default:
-      throw new Error(`Unsupported operator: '${operator}'!`);
-  }
-
-  return String(result);
-};
-
-export default () => app(TASK_TEXT, getRandomExpression, calculateExpression);
+export default () => app(TASK_TEXT, problems, answers);

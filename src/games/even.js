@@ -1,8 +1,17 @@
-import getRandomIntInclusive from '../utils.js';
-import app from '../index.js';
+import { getRandomIntInclusive, isEven } from '../utils.js';
+import { NUMBER_OF_ROUNDS, app } from '../index.js';
 
 const TASK_TEXT = 'Answer "yes" if the number is even, otherwise answer "no".';
 
-const isEven = (num) => ((num % 2 === 0) ? 'yes' : 'no');
+const problems = [];
+const answers = [];
 
-export default () => app(TASK_TEXT, getRandomIntInclusive, isEven);
+for (let i = 0; i < NUMBER_OF_ROUNDS; i += 1) {
+  const problem = getRandomIntInclusive(0, 100);
+  const answer = isEven(problem) ? 'yes' : 'no';
+
+  problems.push(problem);
+  answers.push(answer);
+}
+
+export default () => app(TASK_TEXT, problems, answers);

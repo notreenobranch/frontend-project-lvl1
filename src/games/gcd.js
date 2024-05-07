@@ -1,21 +1,19 @@
-import getRandomIntInclusive from '../utils.js';
-import app from '../index.js';
+import { getRandomIntInclusive, getGCD } from '../utils.js';
+import { NUMBER_OF_ROUNDS, app } from '../index.js';
 
 const TASK_TEXT = 'Find the greatest common divisor of given numbers.';
 
-const getRandomPair = () => [getRandomIntInclusive(1, 100), getRandomIntInclusive(1, 100)];
+const problems = [];
+const answers = [];
 
-const getGCD = (a, b) => ((b === 0) ? a : getGCD(b, a % b));
+for (let i = 0; i < NUMBER_OF_ROUNDS; i += 1) {
+  const number1 = getRandomIntInclusive(1, 100);
+  const number2 = getRandomIntInclusive(1, 100);
+  const problem = `${number1} ${number2}`;
+  const answer = String(getGCD(number1, number2));
 
-const createQuestion = () => {
-  const pair = getRandomPair();
-  return pair.join(' ');
-};
+  problems.push(problem);
+  answers.push(answer);
+}
 
-const getAnswer = (str) => {
-  const [a, b] = str.split(' ');
-  const answer = getGCD(a, b);
-  return String(answer);
-};
-
-export default () => app(TASK_TEXT, createQuestion, getAnswer);
+export default () => app(TASK_TEXT, problems, answers);

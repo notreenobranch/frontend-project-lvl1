@@ -1,34 +1,24 @@
-import getRandomIntInclusive from '../utils.js';
-import app from '../index.js';
+import { getRandomIntInclusive, generateProgression } from '../utils.js';
+import { NUMBER_OF_ROUNDS, app } from '../index.js';
 
 const TASK_TEXT = 'What number is missing in the progression?';
+const PROGRESSION_SIZE = 10;
 
-let answer;
+const problems = [];
+const answers = [];
 
-const generateProgression = (size, first, step) => {
-  const progression = [];
-
-  for (let i = 0; i < size; i += 1) {
-    const currentElement = first + step * i;
-    progression.push(currentElement);
-  }
-
-  return progression;
-};
-
-const createQuestion = () => {
-  const size = 10;
-  const first = getRandomIntInclusive(2, 20);
+for (let i = 0; i < NUMBER_OF_ROUNDS; i += 1) {
+  const firstNumber = getRandomIntInclusive(2, 20);
   const step = getRandomIntInclusive(2, 6);
-  const progression = generateProgression(size, first, step);
-  const missingNumberPosition = getRandomIntInclusive(3, size - 1);
+  const progression = generateProgression(PROGRESSION_SIZE, firstNumber, step);
+  const emptyPosition = getRandomIntInclusive(3, PROGRESSION_SIZE - 1);
 
-  answer = progression[missingNumberPosition];
-  progression[missingNumberPosition] = '..';
+  const answer = String(progression[emptyPosition]);
+  progression[emptyPosition] = '..';
+  const problem = progression.join((' '));
 
-  return progression.join(' ');
-};
+  problems.push(problem);
+  answers.push(answer);
+}
 
-const getAnswer = () => String(answer);
-
-export default () => app(TASK_TEXT, createQuestion, getAnswer);
+export default () => app(TASK_TEXT, problems, answers);
